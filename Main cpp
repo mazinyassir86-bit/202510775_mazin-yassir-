@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    // 1. Create variables: chosen number, user input, and an array (vector)
+    int chosenNumber = 7; 
+    int userGuess = 0;
+    std::vector<int> attempts;
+
+    std::cout << "I have chosen a number. Try to guess it!" << std::endl;
+
+    // 2. Use a while loop that continues as long as guess != chosenNumber
+    while (userGuess != chosenNumber) {
+        // Ask the user to enter a number
+        std::cout << "Enter your guess: ";
+        std::cin >> userGuess;
+
+        // Store the value into the array/list immediately
+        attempts.push_back(userGuess);
+
+        // Use if/else statements to compare the guess
+        if (userGuess > chosenNumber) {
+            std::cout << "Too high" << std::endl;
+        } 
+        else if (userGuess < chosenNumber) {
+            std::cout << "Too low" << std::endl;
+        } 
+        else {
+            std::cout << "Correct" << std::endl;
+        }
+    }
+
+    // 3. Use a for loop to display all guesses stored in the array
+    std::cout << "\nGame Over! Here are all your attempts:" << std::endl;
+    for (int i = 0; i < attempts.size(); i++) {
+        std::cout << "Attempt " << i + 1 << ": " << attempts[i] << std::endl;
+    }
+
+    return 0;
+}
